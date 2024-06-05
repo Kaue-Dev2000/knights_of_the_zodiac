@@ -55,13 +55,16 @@ class PerguntaAppState extends State<CavaleirosApp> {
           title: Text('Cavaleiros do Zodíaco'),
           foregroundColor: Colors.white,
         ),
-        body: temPersonagemSelecionado ? Column(
-          children: <Widget>[
-            Nome(_personagens[_personagemSelecionado]['nome']!),
-            Image.asset(_personagens[_personagemSelecionado].cast()['endereco']),
-            ElevatedButton(
-              onPressed: _responder, child: Icon(Icons.arrow_circle_right)),
-          ],
+        body: temPersonagemSelecionado ? Container(
+          child: SingleChildScrollView(
+            child: Column(
+              children: <Widget>[
+                Nome(_personagens[_personagemSelecionado]['nome']!),
+                Image.asset(_personagens[_personagemSelecionado].cast()['endereco']),
+                ElevatedButton(onPressed: _responder, child: Icon(Icons.arrow_circle_right)),
+              ],
+            ),
+          ),
         ) : Retornar(),
       ),
     );
